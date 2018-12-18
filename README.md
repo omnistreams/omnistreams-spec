@@ -60,7 +60,7 @@ interface ProducerStream<ItemType> {
 Channels (for streaming over a network, etc):
 
 ```
-interface Channel<ItemType> {
+interface Channel<ItemType, MetadataType> {
     handleReceivedMessage: function(message: Array<uint8>)
     setSendHandler: function(message: Array<uint8>)
     createSendStream: function(metadata: MetadataType) -> ConsumerStream<ItemType>
