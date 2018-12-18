@@ -30,7 +30,9 @@ node backend (see [ws-streamify](https://github.com/baygeldin/ws-streamify)).
 You can think of omnistreams as an attempt to generalize node streams to work
 in any language, and over a network.
 
-The following pseudocode outlines the primary interfaces:
+The following pseudocode outlines the primary interfaces.
+
+Core streams:
 
 ```
 interface ConsumerStream<ItemType> {
@@ -52,5 +54,16 @@ interface ProducerStream<ItemType> {
     cancel: function()
     onCancel: function(callback: function())
     onError: function(callback: function(error: string))
+}
+```
+
+Channels (for streaming over a network, etc):
+
+```
+interface Channel<ItemType> {
+    handleReceivedMessage: function(message: Array<uint8>)
+    setSendHandler: function(message: Array<uint8>)
+    createSendStream: function(metadata: MetadataType) -> ConsumerStream<ItemType>
+    onReceiveStream: function(callback: function(stream: ProducerStream<ItemType>, metadata: MetadataType))
 }
 ```
