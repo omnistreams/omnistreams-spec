@@ -78,6 +78,12 @@ interface Channel<ElementType, MetadataType> {
 }
 ```
 
+# Implementations (in order of completeness)
+
+* [JavaScript](https://github.com/anderspitman/omnistreams-js)
+* [Go](https://github.com/anderspitman/omnistreams-go)
+* [Rust](https://github.com/anderspitman/omnistreams-rs)
+
 # Additional Resources
 
 * [Lossless backpressure in RxJS](https://itnext.io/lossless-backpressure-in-rxjs-b6de30a1b6d4)
