@@ -80,9 +80,9 @@ interface Channel<ElementType, MetadataType> {
 
 # Implementations (in order of completeness)
 
-* [JavaScript](https://github.com/anderspitman/omnistreams-js)
+* [JavaScript](https://github.com/anderspitman/netstreams-js)
 * [Go](https://github.com/anderspitman/omnistreams-go)
-* [Rust](https://github.com/anderspitman/omnistreams-rs)
+* [Rust](https://github.com/anderspitman/netstreams-rs)
 
 # Additional Resources
 
