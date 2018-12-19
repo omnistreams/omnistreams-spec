@@ -35,8 +35,8 @@ The following pseudocode outlines the primary interfaces.
 Core streams:
 
 ```
-interface ConsumerStream<ItemType> {
-    write: function(item: ItemType)
+interface ConsumerStream<ElementType> {
+    write: function(item: ElementType)
     end: function()
     onRequest: function(callback: function(numItems: uint32))
 
@@ -45,11 +45,11 @@ interface ConsumerStream<ItemType> {
     onError: function(callback: function(error: string))
 }
 
-interface ProducerStream<ItemType> {
+interface ProducerStream<ElementType> {
     request: function(numItems: uint32)
-    onData: function(callback: function(data: ItemType))
+    onData: function(callback: function(data: ElementType))
     onEnd: function(callback: function())
-    pipe: function(consumer: ConsumerStream<ItemType>)
+    pipe: function(consumer: ConsumerStream<ElementType>)
 
     cancel: function()
     onCancel: function(callback: function())
@@ -60,10 +60,10 @@ interface ProducerStream<ItemType> {
 Channels (for streaming over a network, etc):
 
 ```
-interface Channel<ItemType, MetadataType> {
+interface Channel<ElementType, MetadataType> {
     handleReceivedMessage: function(message: Array<uint8>)
     setSendHandler: function(message: Array<uint8>)
-    createSendStream: function(metadata: MetadataType) -> ConsumerStream<ItemType>
-    onReceiveStream: function(callback: function(stream: ProducerStream<ItemType>, metadata: MetadataType))
+    createSendStream: function(metadata: MetadataType) -> ConsumerStream<ElementType>
+    onReceiveStream: function(callback: function(stream: ProducerStream<ElementType>, metadata: MetadataType))
 }
 ```
