@@ -11,12 +11,12 @@ The project has the following core goals:
    WebSockets, WebRTC, ZeroMQ, reliable UDP, Go channels, etc)
 3. Pull-based backpressure.
 4. Reference implementations and base classes/interfaces in JavaScript, Rust,
-   Go, and Python. This includes convenience functionality for setting up
+   and Go. This includes convenience functionality for setting up
    networked streams over WebSockets.
-5. Extremely simple to understand and make new implementations. If a reasonable
-   amount of performance loss means a greatly simplified design, choose the
-   simple option. A first-year undergrad CS student should be able to make
-   a usefully complete implementation in an arbitrary programming language.
+5. Extremely simple to understand and implement. If a reasonable amount of
+   performance loss means a greatly simplified design, choose the simple
+   option. A first-year undergrad CS student should be able to make a usefully
+   complete implementation in an arbitrary programming language.
 
 
 # Prior Work
@@ -25,9 +25,10 @@ omnistreams are heavily influenced by prior work, especially the excellent
 [Reactive Streams](http://www.reactive-streams.org/), and
 [ReactiveX](http://reactivex.io/). The primary differences are that omnistreams
 have less functionality (no semantics for multiple subscribers, no built-in
-operators, etc) and have a heavy focus on inter-language operability.  The most
-important thing we stole from them is the pull-based backpressure semantics
-(see also [pull streams](https://github.com/pull-stream/pull-stream).
+operators, etc) and have a heavy focus on inter-language streaming. The most
+important thing we stole from reactive streams is the pull-based backpressure
+semantics (see also [pull
+streams](https://github.com/pull-stream/pull-stream)).
 
 There's also a lot of overlap with node streams. There several excellent
 projects to bring node streams to the browser, and even between the browser and
@@ -41,7 +42,7 @@ programming language, and between any two languages over a network.
 
 The following pseudocode outlines the primary interfaces.
 
-Core streams:
+## Core streams:
 
 ```
 interface ConsumerStream<ElementType> {
@@ -66,7 +67,7 @@ interface ProducerStream<ElementType> {
 }
 ```
 
-Channels (for streaming over a network, etc):
+## Channels (for streaming over a network, etc):
 
 ```
 interface Channel<ElementType, MetadataType> {
@@ -80,3 +81,5 @@ interface Channel<ElementType, MetadataType> {
 # Additional Resources
 
 * [Lossless backpressure in RxJS](https://itnext.io/lossless-backpressure-in-rxjs-b6de30a1b6d4)
+* [Backpressure in Rx](https://github.com/ReactiveX/RxJava/wiki/Backpressure)
+* [pull streams](http://dominictarr.com/post/149248845122/pull-streams-pull-streams-are-a-very-simple)
