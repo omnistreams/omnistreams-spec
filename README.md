@@ -1,3 +1,5 @@
+# Introduction
+
 omnistreams aims to be a specification for a system to stream data around.
 The project has the following core goals:
 
@@ -17,6 +19,8 @@ The project has the following core goals:
    a usefully complete implementation in an arbitrary programming language.
 
 
+# Prior Work
+
 omnistreams are heavily influenced by prior work, especially the excellent
 [Reactive Streams](http://www.reactive-streams.org/). The primary differences
 are that omnistreams have less functionality (no semantics for multiple
@@ -29,6 +33,9 @@ projects to bring node streams to the browser, and even between the browser and
 node backend (see [ws-streamify](https://github.com/baygeldin/ws-streamify)).
 You can think of omnistreams as an attempt to generalize node streams to work
 in any language, and over a network.
+
+
+# Interfaces
 
 The following pseudocode outlines the primary interfaces.
 
@@ -67,3 +74,7 @@ interface Channel<ElementType, MetadataType> {
     onReceiveStream: function(callback: function(stream: ProducerStream<ElementType>, metadata: MetadataType))
 }
 ```
+
+Additional Resources
+
+* [Lossless backpressure in RxJS](https://itnext.io/lossless-backpressure-in-rxjs-b6de30a1b6d4)
