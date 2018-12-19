@@ -22,17 +22,19 @@ The project has the following core goals:
 # Prior Work
 
 omnistreams are heavily influenced by prior work, especially the excellent
-[Reactive Streams](http://www.reactive-streams.org/). The primary differences
-are that omnistreams have less functionality (no semantics for multiple
-subscribers, for example) and have a heavy focus on inter-language operability.
-The most important thing we stole from them is the pull-based backpressure
-semantics (see also [pull streams](https://github.com/pull-stream/pull-stream).
+[Reactive Streams](http://www.reactive-streams.org/), and
+[ReactiveX](http://reactivex.io/). The primary differences are that omnistreams
+have less functionality (no semantics for multiple subscribers, no built-in
+operators, etc) and have a heavy focus on inter-language operability.  The most
+important thing we stole from them is the pull-based backpressure semantics
+(see also [pull streams](https://github.com/pull-stream/pull-stream).
 
 There's also a lot of overlap with node streams. There several excellent
 projects to bring node streams to the browser, and even between the browser and
-node backend (see [ws-streamify](https://github.com/baygeldin/ws-streamify)).
-You can think of omnistreams as an attempt to generalize node streams to work
-in any language, and over a network.
+node backend over websockets (see
+[ws-streamify](https://github.com/baygeldin/ws-streamify)). You can think of
+omnistreams as an attempt to generalize node streams to work in any
+programming language, and between any two languages over a network.
 
 
 # Interfaces
@@ -75,6 +77,6 @@ interface Channel<ElementType, MetadataType> {
 }
 ```
 
-Additional Resources
+# Additional Resources
 
 * [Lossless backpressure in RxJS](https://itnext.io/lossless-backpressure-in-rxjs-b6de30a1b6d4)
