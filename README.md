@@ -42,10 +42,10 @@ programming language, and between any two languages over a network.
 
 The following pseudocode outlines the primary interfaces.
 
-## Core streams:
+## Core interfaces:
 
 ```
-interface ConsumerStream<ElementType> {
+interface Consumer<ElementType> {
     write: function(item: ElementType)
     end: function()
     onRequest: function(callback: function(numItems: uint32))
@@ -55,11 +55,11 @@ interface ConsumerStream<ElementType> {
     onError: function(callback: function(error: string))
 }
 
-interface ProducerStream<ElementType> {
+interface Producer<ElementType> {
     request: function(numItems: uint32)
     onData: function(callback: function(data: ElementType))
     onEnd: function(callback: function())
-    pipe: function(consumer: ConsumerStream<ElementType>)
+    pipe: function(consumer: Consumer<ElementType>)
 
     cancel: function()
     onCancel: function(callback: function())
@@ -67,14 +67,17 @@ interface ProducerStream<ElementType> {
 }
 ```
 
-## Channels (for streaming over a network, etc):
+## Multiplexers (for streaming over a network, etc):
 
 ```
-interface Channel<ElementType, MetadataType> {
+interface Multiplexer<ElementType, MessageType> {
+    sendControlMessage: function(message: MessageType)
+    onControlMessage: function(callback: function(message: MessageType))
+
     handleReceivedMessage: function(message: Array<uint8>)
     setSendHandler: function(message: Array<uint8>)
-    createSendStream: function(metadata: MetadataType) -> ConsumerStream<ElementType>
-    onReceiveStream: function(callback: function(stream: ProducerStream<ElementType>, metadata: MetadataType))
+    createConsumer: function(metadata: MessageType) -> Consumer<ElementType>
+    onProducer: function(callback: function(stream: Producer<ElementType>, metadata: MessageType))
 }
 ```
 
