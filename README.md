@@ -78,40 +78,33 @@ The following pseudocode outlines the primary interfaces.
 ## Core interfaces:
 
 ```
-interface Consumer<ElementType> {
-    write: function(item: ElementType)
-    end: function()
-    onRequest: function(callback: function(numItems: uint32))
-
+interface Streamer {
     cancel: function()
     onCancel: function(callback: function())
     onError: function(callback: function(error: string))
+}
+
+interface Consumer<ElementType> {
+    implements Streamer
+
+    write: function(item: ElementType)
+    end: function()
+    onRequest: function(callback: function(numItems: uint32))
 }
 
 interface Producer<ElementType> {
+    implements Streamer
+
     request: function(numItems: uint32)
     onData: function(callback: function(data: ElementType))
     onEnd: function(callback: function())
     pipe: function(consumer: Consumer<ElementType>)
-
-    cancel: function()
-    onCancel: function(callback: function())
-    onError: function(callback: function(error: string))
 }
 
 interface Conduit<ElementType> {
-    write: function(item: ElementType)
-    end: function()
-    onRequest: function(callback: function(numItems: uint32))
-
-    request: function(numItems: uint32)
-    onData: function(callback: function(data: ElementType))
-    onEnd: function(callback: function())
-    pipe: function(consumer: Consumer<ElementType>)
-
-    cancel: function()
-    onCancel: function(callback: function())
-    onError: function(callback: function(error: string))
+    implements Streamer
+    implements Consumer<ElementType>
+    implements Producer<ElementType>
 }
 ```
 
