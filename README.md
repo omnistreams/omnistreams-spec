@@ -125,7 +125,7 @@ interface Multiplexer<ElementType, MessageType> {
 
 # Implementations (in order of completeness)
 
-* [JavaScript](https://github.com/anderspitman/netstreams-js)
+* [JavaScript](https://github.com/anderspitman/omnistreams-js)
 * [Go](https://github.com/anderspitman/omnistreams-go)
 * [Rust](https://github.com/anderspitman/netstreams-rs)
 
