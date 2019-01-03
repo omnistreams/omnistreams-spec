@@ -89,7 +89,8 @@ interface Consumer<ElementType> {
 
     write: function(item: ElementType)
     end: function()
-    onRequest: function(callback: function(numItems: uint32))
+    onRequest: function(callback: function(numElements: uint32))
+    onFinished: function(callback: function())
 }
 
 interface Producer<ElementType> {
