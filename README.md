@@ -84,41 +84,41 @@ interface Streamer {
     onError: function(callback: function(error: string))
 }
 
-interface Consumer<ElementType> {
+interface Consumer {
     implements Streamer
 
-    write: function(item: ElementType)
+    write: function(item: Array<uint8>)
     end: function()
-    onRequest: function(callback: function(numItems: uint32))
+    onRequest: function(callback: function(numItems: uint8))
 }
 
-interface Producer<ElementType> {
+interface Producer {
     implements Streamer
 
-    request: function(numItems: uint32)
-    onData: function(callback: function(data: ElementType))
+    request: function(numItems: uint8)
+    onData: function(callback: function(data: Array<uint8>))
     onEnd: function(callback: function())
-    pipe: function(consumer: Consumer<ElementType>)
+    pipe: function(consumer: Consumer)
 }
 
-interface Conduit<ElementType> {
+interface Conduit {
     implements Streamer
-    implements Consumer<ElementType>
-    implements Producer<ElementType>
+    implements Consumer
+    implements Producer
 }
 ```
 
 ## Multiplexers (for streaming over a network, etc):
 
 ```
-interface Multiplexer<ElementType, MessageType> {
-    sendControlMessage: function(message: MessageType)
-    onControlMessage: function(callback: function(message: MessageType))
+interface Multiplexer {
+    sendControlMessage: function(message: Array<uint8>)
+    onControlMessage: function(callback: function(message: Array<uint8>))
 
     handleReceivedMessage: function(message: Array<uint8>)
     setSendHandler: function(message: Array<uint8>)
-    createConduit: function(metadata: MessageType) -> Consumer<ElementType>
-    onConduit: function(callback: function(producer: Producer<ElementType>, metadata: MessageType))
+    createConduit: function(metadata: Array<uint8>) -> Consumer
+    onConduit: function(callback: function(producer: Producer, metadata: Array<uint8>))
 }
 ```
 
