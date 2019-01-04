@@ -90,6 +90,7 @@ interface Consumer {
     write: function(item: Array<uint8>)
     end: function()
     onRequest: function(callback: function(numItems: uint8))
+    onFinished: function(callback: function())
 }
 
 interface Producer {
