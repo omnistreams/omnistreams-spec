@@ -79,8 +79,8 @@ The following pseudocode outlines the primary interfaces.
 
 ```
 interface Streamer {
-    cancel: function()
-    onCancel: function(callback: function())
+    terminate: function()
+    onTermination: function(callback: function())
     onError: function(callback: function(error: string))
 }
 
@@ -90,7 +90,7 @@ interface Consumer {
     write: function(item: Array<uint8>)
     end: function()
     onRequest: function(callback: function(numItems: uint8))
-    onFinished: function(callback: function())
+    onFinish: function(callback: function())
 }
 
 interface Producer {
