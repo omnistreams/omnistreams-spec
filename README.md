@@ -33,9 +33,12 @@ streams](https://github.com/pull-stream/pull-stream)).
 There's also a lot of overlap with node streams. There several excellent
 projects to bring node streams to the browser, and even between the browser and
 node backend over websockets (see
-[ws-streamify](https://github.com/baygeldin/ws-streamify)). You can think of
-omnistreams as an attempt to generalize node streams to work in any
-programming language, and between any two languages over a network.
+[ws-streamify](https://github.com/baygeldin/ws-streamify)). In terms of
+functionality offered, omnistreams is very close to
+[binaryjs](https://github.com/binaryjs/binaryjs).
+Unfortunately, that project appears to be defunct. You can think of
+omnistreams as an attempt to generalize node streams to work in any programming
+language, and between any two languages over a network.
 
 
 # Terminology
