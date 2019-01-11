@@ -124,6 +124,11 @@ interface Multiplexer {
 ```
 
 
+# Semantics
+
+TODO...
+
+
 # Implementations (in order of completeness)
 
 * [JavaScript](https://github.com/anderspitman/omnistreams-js)
