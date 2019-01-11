@@ -33,9 +33,12 @@ streams](https://github.com/pull-stream/pull-stream)).
 There's also a lot of overlap with node streams. There several excellent
 projects to bring node streams to the browser, and even between the browser and
 node backend over websockets (see
-[ws-streamify](https://github.com/baygeldin/ws-streamify)). You can think of
-omnistreams as an attempt to generalize node streams to work in any
-programming language, and between any two languages over a network.
+[ws-streamify](https://github.com/baygeldin/ws-streamify)). In terms of
+functionality offered, omnistreams is very close to
+[binaryjs](https://github.com/binaryjs/binaryjs).
+Unfortunately, that project appears to be defunct. You can think of
+omnistreams as an attempt to generalize node streams to work in any programming
+language, and between any two languages over a network.
 
 
 # Terminology
@@ -46,17 +49,17 @@ pedantic, using terms primarily based on their English meaning to represent
 the underlying concepts. While this will hopefully make things simpler for
 beginners, it also means sometimes breaking with common uses of the terms.
 
-* Stream - A stream in omnistreams represents the data itself. This especially
+* **Stream** - A stream in omnistreams represents the data itself. This especially
   breaks with systems like node, where the stream is the object that provides
   the data. omnistreams are also always unidirectional. If you need data
   flowing in both directions, set up another stream.
-* Producer - a Producer emits a stream of data. This would be called a
+* **Producer** - a Producer emits a stream of data. This would be called a
   ReadStream in node. I found the terms Read/Write stream confusing since it
   could mean you read data from the stream, or the stream reads your data and
   passes it on.
-* Consumer - A Consumer is a sink for a data stream. Analogous to a WriteStream
+* **Consumer** - A Consumer is a sink for a data stream. Analogous to a WriteStream
   in node.
-* Conduit - A Conduit acts as both a Consumer and a Producer, with a single
+* **Conduit** - A Conduit acts as both a Consumer and a Producer, with a single
   unidirectional stream being fed to the Consumer and output by the Producer.
   Conduits have two primary uses. The first is for modifying a data stream in
   some way, in which case it is a transform Conduit. The other is for bridging
@@ -65,7 +68,7 @@ beginners, it also means sometimes breaking with common uses of the terms.
   However, that term is heavily used for several different meanings, so we
   chose to use a different term to avoid confusion. I believe this usage is
   essentially the same as the Haskell conduit package (see links below).
-* Multiplexer - Multiplexers provide a simple interface for creating and
+* **Multiplexer** - Multiplexers provide a simple interface for creating and
   managing multiple Conduits over a single concurrency medium. This is useful
   for sharing a single network socket or other communication primitive where
   it's undesirable to open a new underlying resource for every stream.
