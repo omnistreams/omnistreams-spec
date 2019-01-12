@@ -129,7 +129,124 @@ interface Multiplexer {
 
 # Semantics
 
-TODO...
+## Core interfaces:
+
+```
+interface Streamer {
+```
+
+Functionality common to both consumers and producers.
+
+
+```
+    terminate: function()
+```
+
+Cancels streaming early.
+
+
+```
+    onTermination: function(callback: function())
+```
+
+Registers a callback to be notified if the streamer is terminated. Termination
+events are propagated upstream and downstream.
+
+
+```
+    onError: function(callback: function(error: string))
+```
+
+Registers a callback to be notified of any errors. Error events are propagated
+upstream and downstream.
+
+```
+}
+```
+
+```
+interface Consumer {
+    implements Streamer
+```
+
+A sink for streaming data.
+
+```
+    write: function(item: Array<uint8>)
+```
+
+Writes bytes to be sent downstream. The calling application must never call
+this method more times than have been requested via the callback passed to
+onRequest, but it may call write less (ie if the upstream data source has ended
+normally). The calling application is responsible for encoding messages to raw
+byte sequences.
+
+```
+    end: function()
+```
+
+Called to indicate downstream that the data stream has ended normally.
+
+```
+    onRequest: function(callback: function(numItems: uint8))
+```
+
+Registers a callback to be called whenever more data has been requested from
+downstream.
+
+```
+    onFinish: function(callback: function())
+```
+
+Registers a callback to be called when all data passed to write has been
+successfully passed on (ie flushed).
+```
+}
+```
+
+```
+interface Producer {
+    implements Streamer
+```
+
+A source for streaming data.
+
+```
+    request: function(numItems: uint8)
+```
+
+Request more data from upstream. This method informs upstream of how much
+data we are able to handle, therefore it can be used as a buffer. Typical
+usage involves an initial call (or calls) to this method indicating how much
+data is safe to send at one time (establishing the buffer size). Then each
+time data is received this method is called again to request another message.
+
+```
+    onData: function(callback: function(data: Array<uint8>))
+    onEnd: function(callback: function())
+    pipe: function(consumer: Consumer)
+}
+
+interface Conduit {
+    implements Streamer
+    implements Consumer
+    implements Producer
+}
+```
+
+## Multiplexers (for streaming over a network, etc):
+
+```
+interface Multiplexer {
+    sendControlMessage: function(message: Array<uint8>)
+    onControlMessage: function(callback: function(message: Array<uint8>))
+
+    handleReceivedMessage: function(message: Array<uint8>)
+    setSendHandler: function(message: Array<uint8>)
+    createConduit: function(metadata: Array<uint8>) -> Consumer
+    onConduit: function(callback: function(producer: Producer, metadata: Array<uint8>))
+}
+```
 
 
 # Implementations (in order of completeness)
