@@ -138,5 +138,7 @@ interface Multiplexer {
 
 * [Lossless backpressure in RxJS](https://itnext.io/lossless-backpressure-in-rxjs-b6de30a1b6d4)
 * [Backpressure in Rx](https://github.com/ReactiveX/RxJava/wiki/Backpressure)
+* [Node Streams](https://nodejs.org/api/stream.html)
+* [Backpressuring in Streams (Node)](https://nodejs.org/en/docs/guides/backpressuring-in-streams/)
 * [pull streams](http://dominictarr.com/post/149248845122/pull-streams-pull-streams-are-a-very-simple)
 * [Haskell conduit package](https://github.com/snoyberg/conduit#readme)
