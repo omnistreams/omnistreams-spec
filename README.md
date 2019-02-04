@@ -37,7 +37,7 @@ streams](https://github.com/pull-stream/pull-stream)).
 There's also a lot of overlap with node streams. There several excellent
 projects to bring node streams to the browser, and even between the browser and
 node backend over websockets (see
-[ws-streamify](https://github.com/baygeldin/ws-streamify)). In terms of
+[ws-streamify](https://github.com/baygeldin/ws-streamify), [websocket-stream](https://github.com/maxogden/websocket-stream)). In terms of
 functionality offered, omnistreams is very close to
 [binaryjs](https://github.com/binaryjs/binaryjs).
 Unfortunately, that project appears to be defunct. You can think of
