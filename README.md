@@ -56,6 +56,8 @@ I discovered [rsocket](http://rsocket.io/) some time after completing a working 
 
 # Additional Resources
 
+* [Excellent rsocket FAQ](http://rsocket.io/docs/FAQ)
+* [Excellent rsocket Motivations doc](http://rsocket.io/docs/Motivations)
 * [Lossless backpressure in RxJS](https://itnext.io/lossless-backpressure-in-rxjs-b6de30a1b6d4)
 * [Backpressure in Rx](https://github.com/ReactiveX/RxJava/wiki/Backpressure)
 * [Node Streams](https://nodejs.org/api/stream.html)
