@@ -44,6 +44,8 @@ Unfortunately, that project appears to be defunct. You can think of
 omnistreams as an attempt to generalize node streams to work in any programming
 language, and between any two languages over a network.
 
+I discovered [rsocket](http://rsocket.io/) some time after completing a working JavaScript implementation of omnistreams. The goals of the two projects appear to be **very** similar, with rsocket being far more complete and mature. If I had found it when I went looking for a language-agnostic backpressured WebSocket stream multiplexer, I would have spent some time trying to make it work before implementing my own solution. As it stands, the biggest advantage of omnistreams that I see is that it has a much simpler protocol, mostly because it offers far fewer features. This makes it faster to implement for new languages and easier for developers to pick up and use. Knowing that rsocket exists gives me confidence in choosing to keep omnistreams as simple as possible.
+
 
 # Implementations (in order of completeness)
 
