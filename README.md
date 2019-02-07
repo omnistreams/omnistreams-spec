@@ -5,7 +5,7 @@ The project has the following core goals:
 
 1. Language-agnostic interfaces and semantics for barebones readable (producer) and
    writable (consumer) streams.
-2. Dead-simple wire protocol for multiplexing. This is for sending streams
+2. Dead-simple wire protocol with multiplexing. This is for sending streams
    between networked machines, processes, threads, coroutines, etc. The only
    requirement is an underlying reliable, in-order, message passing system (ie
    WebSockets, WebRTC, ZeroMQ, reliable UDP, Go channels, etc)
