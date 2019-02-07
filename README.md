@@ -60,4 +60,4 @@ language, and between any two languages over a network.
 * [Backpressuring in Streams (Node)](https://nodejs.org/en/docs/guides/backpressuring-in-streams/)
 * [pull streams](http://dominictarr.com/post/149248845122/pull-streams-pull-streams-are-a-very-simple)
 * [Haskell conduit package](https://github.com/snoyberg/conduit#readme)
-* [Useful WHATWG Streams FAQ](https://github.com/whatwg/streams/blob/master/FAQ.md)
+* [Informative WHATWG Streams FAQ](https://github.com/whatwg/streams/blob/master/FAQ.md)
