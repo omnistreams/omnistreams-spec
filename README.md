@@ -61,3 +61,4 @@ language, and between any two languages over a network.
 * [pull streams](http://dominictarr.com/post/149248845122/pull-streams-pull-streams-are-a-very-simple)
 * [Haskell conduit package](https://github.com/snoyberg/conduit#readme)
 * [Informative WHATWG Streams FAQ](https://github.com/whatwg/streams/blob/master/FAQ.md)
+* [Informative Firefox Streams Bug](https://bugzilla.mozilla.org/show_bug.cgi?id=1128959)
