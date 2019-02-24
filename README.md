@@ -1,6 +1,6 @@
 # Introduction
 
-omnistreams aims to be a specification for a system to stream data around.
+omnistreams aims to be a specification defining a data streaming system.
 The project has the following core goals:
 
 1. Language-agnostic interfaces and semantics for barebones readable (producer) and
@@ -34,7 +34,7 @@ important thing we stole from reactive streams is the pull-based backpressure
 semantics (see also [pull
 streams](https://github.com/pull-stream/pull-stream)).
 
-There's also a lot of overlap with node streams. There several excellent
+There's also a lot of overlap with node streams. There are several excellent
 projects to bring node streams to the browser, and even between the browser and
 node backend over websockets (see
 [ws-streamify](https://github.com/baygeldin/ws-streamify), [websocket-stream](https://github.com/maxogden/websocket-stream)). In terms of
