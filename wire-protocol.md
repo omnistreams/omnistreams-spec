@@ -28,7 +28,7 @@ Each message is prepended with a single byte message type. The types are:
 MESSAGE_TYPE_CREATE_RECEIVE_STREAM = 0
 MESSAGE_TYPE_STREAM_DATA           = 1
 MESSAGE_TYPE_STREAM_END            = 2
-MESSAGE_TYPE_TERMINATE_SEND_STREAM = 3
+MESSAGE_TYPE_CANCEL_SEND_STREAM = 3
 MESSAGE_TYPE_STREAM_REQUEST_DATA   = 4
 MESSAGE_TYPE_CONTROL_MESSAGE       = 5
 ```
@@ -58,7 +58,7 @@ MESSAGE_TYPE_STREAM_DATA
 
 Send a chunk of data for the given stream ID. If the remote side recieves
 a data chunk for a stream it doesn't recognize, it should ignore the data
-and immediately send a `MESSAGE_TYPE_TERMINATE_SEND_STREAM`.
+and immediately send a `MESSAGE_TYPE_CANCEL_SEND_STREAM`.
 
 The local side shall not send more messages than the remote side has indicated
 it's ready for via `MESSAGE_TYPE_STREAM_REQUEST_DATA`.
@@ -72,7 +72,7 @@ this message, just the message type and stream id. Therefore, all data should
 already have been sent via `MESSAGE_TYPE_STREAM_DATA` messages.
 
 ```
-MESSAGE_TYPE_TERMINATE_SEND_STREAM
+MESSAGE_TYPE_CANCEL_SEND_STREAM
 ```
 
 Instructs the remote end to destroy any knowledge of the stream, and cease
