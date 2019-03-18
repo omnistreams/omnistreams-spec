@@ -26,7 +26,8 @@ interface Producer {
     request: function(numItems: uint8)
     onData: function(callback: function(data: Array<uint8>))
     onEnd: function(callback: function())
-    pipe: function(consumer: Consumer)
+    pipeInto: function(consumer: Consumer)
+    pipeThrough: function(conduit: Conduit) -> Producer
 }
 
 interface Conduit {
@@ -148,7 +149,8 @@ time data is received this method is called again to request another message.
 ```
     onData: function(callback: function(data: Array<uint8>))
     onEnd: function(callback: function())
-    pipe: function(consumer: Consumer)
+    pipeInto: function(consumer: Consumer)
+    pipeThrough: function(conduit: Conduit) -> Producer
 }
 
 interface Conduit {
