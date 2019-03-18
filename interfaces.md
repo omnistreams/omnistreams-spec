@@ -6,8 +6,8 @@ The following pseudocode outlines the primary interfaces.
 
 ```
 interface Streamer {
-    terminate: function()
-    onTermination: function(callback: function())
+    cancel: function()
+    onCancellation: function(callback: function())
     onError: function(callback: function(error: string))
 }
 
@@ -63,17 +63,17 @@ Functionality common to both consumers and producers.
 
 
 ```
-    terminate: function()
+    cancel: function()
 ```
 
 Cancels streaming early.
 
 
 ```
-    onTermination: function(callback: function())
+    onCancellation: function(callback: function())
 ```
 
-Registers a callback to be notified if the streamer is terminated. Termination
+Registers a callback to be notified if the streamer is canceled. Cancellation 
 events are propagated upstream and downstream.
 
 
