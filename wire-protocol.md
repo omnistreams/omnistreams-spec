@@ -1,16 +1,17 @@
 # Introduction
 
 The wire protocol is designed to be as simple as possible to implement, while
-still having reasonable performance. This means there's not currently any
-bit packing. In fact, every individual piece of information fits exactly in
-a single byte. This isn't ideal for efficiency, but does make things much
-easier to reason about. It does lead to real limitations, however. For example,
-you can only have 256 simultaneous streams, and have to include logic to
-reuse the ids that close. It might be better to use a larger number for the
-stream id, but the bigger you make it the more overhead of the protocol, unless
-you do a bunch of fancy bit packing with variable-sized fields. I'm not
-strictly opposed to this, but I suspect it would have to be omnistreams2. I'm
-more interested in simplicity for now.
+still having reasonable performance. I'm aiming for it to be possible to
+make ad-hoc implementations for simple cases, with 0 dependencies.
+This means there's not currently any bit packing. In fact, every individual
+piece of information fits exactly in a single byte. This isn't ideal for
+efficiency, but does make things much easier to reason about. It does lead to
+real limitations, however. For example, you can only have 256 simultaneous
+streams, and have to include logic to reuse the ids that close. It might be
+better to use a larger number for the stream id, but the bigger you make it the
+more overhead of the protocol, unless you do a bunch of fancy bit packing with
+variable-sized fields. I'm not strictly opposed to this, but I suspect it would
+have to be omnistreams2. I'm more interested in simplicity for now.
 
 
 # Protocol 
@@ -91,7 +92,7 @@ you're sending a byte stream, you'll need to have some sort of pre-negotiated
 concept of chunk size. This can be sent in the metadata when the stream is
 created.
 
-The requested amount should be viewed as communicated how much data you
+The requested amount should be viewed as how much data you
 *can* handle, not a demand for a specific amount. It's common for a stream
 to naturally end while there is still a lot of outlying request. This simple
 scheme can be used to simulate higher level concepts. For example, when a
