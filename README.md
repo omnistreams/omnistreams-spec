@@ -49,9 +49,9 @@ I discovered [rsocket](http://rsocket.io/) some time after completing a working 
 
 # Implementations (in order of completeness)
 
-* [JavaScript](https://github.com/anderspitman/omnistreams-js)
+* [JavaScript](https://github.com/omnistreams/omnistreams-js)
 * [Rust](https://github.com/omnistreams/omnistreams-rs)
-* [Go](https://github.com/anderspitman/omnistreams-go)
+* [Go](https://github.com/omnistreams/omnistreams-go)
 
 
 # Additional Resources
