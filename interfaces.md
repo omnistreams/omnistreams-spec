@@ -54,7 +54,7 @@ interface Multiplexer {
     // Actions
     sendControlMessage: function(message: Array<uint8>)
     handleReceivedMessage: function(message: Array<uint8>)
-    setSendHandler: function(message: Array<uint8>)
+    setSendHandler: function(callback: function(message: Array<uint8>))
     openConduit: function(metadata: Array<uint8>) -> Consumer
     
     // Events
