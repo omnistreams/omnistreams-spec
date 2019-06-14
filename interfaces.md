@@ -52,13 +52,11 @@ interface Conduit {
 interface Multiplexer {
 
     // Actions
-    sendControlMessage: function(message: Array<uint8>)
-    handleReceivedMessage: function(message: Array<uint8>)
-    setSendHandler: function(callback: function(message: Array<uint8>))
+    sendMessage: function(message: Array<uint8>)
     openConduit: function(metadata: Array<uint8>) -> Consumer
     
     // Events
-    onControlMessage: function(callback: function(message: Array<uint8>))
+    onMessage: function(callback: function(message: Array<uint8>))
     onConduit: function(callback: function(producer: Producer, metadata: Array<uint8>))
 }
 ```
