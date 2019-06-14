@@ -6,7 +6,10 @@ The following pseudocode outlines the primary interfaces.
 
 ```
 interface Streamer {
+    // Actions
     cancel: function()
+    
+    // Events
     onCancellation: function(callback: function())
     onError: function(callback: function(error: string))
 }
@@ -14,8 +17,11 @@ interface Streamer {
 interface Consumer {
     implements Streamer
 
+    // Actions
     write: function(item: Array<uint8>)
     end: function()
+    
+    // Events
     onRequest: function(callback: function(numItems: uint8))
     onFinish: function(callback: function())
 }
@@ -23,11 +29,14 @@ interface Consumer {
 interface Producer {
     implements Streamer
 
+    // Actions
     request: function(numItems: uint8)
-    onData: function(callback: function(data: Array<uint8>))
-    onEnd: function(callback: function())
     pipeInto: function(consumer: Consumer)
     pipeThrough: function(conduit: Conduit) -> Producer
+    
+    // Events
+    onData: function(callback: function(data: Array<uint8>))
+    onEnd: function(callback: function())
 }
 
 interface Conduit {
@@ -41,12 +50,15 @@ interface Conduit {
 
 ```
 interface Multiplexer {
-    sendControlMessage: function(message: Array<uint8>)
-    onControlMessage: function(callback: function(message: Array<uint8>))
 
+    // Actions
+    sendControlMessage: function(message: Array<uint8>)
     handleReceivedMessage: function(message: Array<uint8>)
     setSendHandler: function(message: Array<uint8>)
     openConduit: function(metadata: Array<uint8>) -> Consumer
+    
+    // Events
+    onControlMessage: function(callback: function(message: Array<uint8>))
     onConduit: function(callback: function(producer: Producer, metadata: Array<uint8>))
 }
 ```
