@@ -46,7 +46,7 @@ interface Multiplexer {
 
     handleReceivedMessage: function(message: Array<uint8>)
     setSendHandler: function(message: Array<uint8>)
-    createConduit: function(metadata: Array<uint8>) -> Consumer
+    openConduit: function(metadata: Array<uint8>) -> Consumer
     onConduit: function(callback: function(producer: Producer, metadata: Array<uint8>))
 }
 ```
@@ -169,7 +169,7 @@ interface Multiplexer {
 
     handleReceivedMessage: function(message: Array<uint8>)
     setSendHandler: function(message: Array<uint8>)
-    createConduit: function(metadata: Array<uint8>) -> Consumer
+    openConduit: function(metadata: Array<uint8>) -> Consumer
     onConduit: function(callback: function(producer: Producer, metadata: Array<uint8>))
 }
 ```
