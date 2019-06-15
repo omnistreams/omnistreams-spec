@@ -11,7 +11,6 @@ interface Streamer {
     
     // Events
     onCancellation: function(callback: function())
-    onError: function(callback: function(error: string))
 }
 
 interface Consumer {
@@ -86,15 +85,6 @@ Cancels streaming early.
 
 Registers a callback to be notified if the streamer is canceled. Cancellation 
 events are propagated upstream and downstream.
-
-
-```
-    onError: function(callback: function(error: string))
-```
-
-Registers a callback to be notified of any errors. Error events are propagated
-upstream and downstream.
-
 ```
 }
 ```
