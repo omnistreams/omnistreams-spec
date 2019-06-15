@@ -35,8 +35,8 @@ MESSAGE_TYPE_STREAM_DATA           = 2
 MESSAGE_TYPE_STREAM_END            = 3
 MESSAGE_TYPE_CANCEL_RECEIVE_STREAM = 4
 // From accepting side
-MESSAGE_TYPE_CANCEL_SEND_STREAM    = 5
-MESSAGE_TYPE_STREAM_REQUEST_DATA   = 6
+MESSAGE_TYPE_STREAM_REQUEST_DATA   = 5
+MESSAGE_TYPE_CANCEL_SEND_STREAM    = 6
 ```
 
 All messages except control messages use the second byte as the stream ID.
@@ -100,13 +100,6 @@ any knowledge of the stream, and cease any processing for that stream.
 ## Acceptor messages
 
 ```
-MESSAGE_TYPE_CANCEL_SEND_STREAM
-```
-
-Instructs the remote end to destroy any knowledge of the stream, and cease
-any processing or sending for said stream.
-
-```
 MESSAGE_TYPE_STREAM_REQUEST_DATA
 ```
 
@@ -133,4 +126,9 @@ to require sending multiple requests to communicate the local buffer size. I'm
 very open to changes this to something bigger but want to keep everything to
 one byte if possible. Want to test this more in practice before deciding.
 
+```
+MESSAGE_TYPE_CANCEL_SEND_STREAM
+```
 
+Instructs the remote end to destroy any knowledge of the stream, and cease
+any processing or sending for said stream.
