@@ -1,6 +1,6 @@
 # Introduction
 
-omnistreams aims to be a specification defining a data streaming system.
+omnistreams is a specification defining a data streaming system.
 The project has the following core goals:
 
 1. Language-agnostic interfaces and semantics for barebones readable (producer) and
