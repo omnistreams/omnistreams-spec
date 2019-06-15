@@ -7,11 +7,13 @@ This means there's not currently any bit packing. In fact, every individual
 piece of information fits exactly in a single byte. This isn't ideal for
 efficiency, but does make things much easier to reason about. It does lead to
 real limitations, however. For example, you can only have 256 simultaneous
-streams, and have to include logic to reuse the ids that close. It might be
-better to use a larger number for the stream id, but the bigger you make it the
-more overhead of the protocol, unless you do a bunch of fancy bit packing with
-variable-sized fields. I'm not strictly opposed to this, but I suspect it would
-have to be omnistreams2. I'm more interested in simplicity for now.
+streams in a single Multiplexer, and have to include logic to reuse the ids that close.
+It might be better to use a larger number for the stream id, but the bigger you make it
+the more overhead of the protocol, unless you do a bunch of fancy bit packing with
+variable-sized fields (a la
+[varints](https://developers.google.com/protocol-buffers/docs/encoding)).
+I'm not strictly opposed to this, but I suspect it would
+be omnistreams2. I'm more interested in simplicity for now.
 
 
 # Protocol 
