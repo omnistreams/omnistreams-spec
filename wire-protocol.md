@@ -28,12 +28,15 @@ Each message is prepended with a single byte message type. The types are:
 
 
 ```
-MESSAGE_TYPE_CREATE_RECEIVE_STREAM = 0
-MESSAGE_TYPE_STREAM_DATA           = 1
-MESSAGE_TYPE_STREAM_END            = 2
-MESSAGE_TYPE_CANCEL_SEND_STREAM    = 3
-MESSAGE_TYPE_STREAM_REQUEST_DATA   = 4
-MESSAGE_TYPE_CONTROL_MESSAGE       = 5
+MESSAGE_TYPE_CONTROL_MESSAGE       = 0
+// From initiating side
+MESSAGE_TYPE_CREATE_RECEIVE_STREAM = 1
+MESSAGE_TYPE_STREAM_DATA           = 2
+MESSAGE_TYPE_STREAM_END            = 3
+MESSAGE_TYPE_CANCEL_RECEIVE_STREAM = 4
+// From accepting side
+MESSAGE_TYPE_CANCEL_SEND_STREAM    = 5
+MESSAGE_TYPE_STREAM_REQUEST_DATA   = 6
 ```
 
 All messages except control messages use the second byte as the stream ID.
@@ -41,6 +44,15 @@ The initiator determines stream IDs.
 
 Here are the semantics for each type:
 
+## Initiator messages
+
+```
+MESSAGE_TYPE_CONTROL_MESSAGE
+```
+
+Control messages allow a convenient out-of-band communication channel for each
+stream. Like stream creation metadata, they operate on byte arrays and the
+application is responsible for encoding/decoding.
 
 ```
 MESSAGE_TYPE_CREATE_RECEIVE_STREAM 
@@ -73,6 +85,16 @@ MESSAGE_TYPE_STREAM_END
 Indicates the natural end of data for the given stream. No data is sent with
 this message, just the message type and stream id. Therefore, all data should
 already have been sent via `MESSAGE_TYPE_STREAM_DATA` messages.
+
+```
+MESSAGE_TYPE_CANCEL_RECEIVE_STREAM
+```
+
+Instructs the acceptor end that the stream is being canceled, and to destroy
+any knowledge of the stream, and cease any processing for that stream.
+
+
+## Acceptor messages
 
 ```
 MESSAGE_TYPE_CANCEL_SEND_STREAM
@@ -108,10 +130,4 @@ to require sending multiple requests to communicate the local buffer size. I'm
 very open to changes this to something bigger but want to keep everything to
 one byte if possible. Want to test this more in practice before deciding.
 
-```
-MESSAGE_TYPE_CONTROL_MESSAGE
-```
 
-Control messages allow a convenient out-of-band communication channel for each
-stream. Like stream creation metadata, they operate on byte arrays and the
-application is responsible for encoding/decoding.
