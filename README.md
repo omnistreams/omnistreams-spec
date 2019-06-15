@@ -12,7 +12,8 @@ The project has the following core goals:
 3. Pull-based backpressure.
 4. Reference implementations and base classes/interfaces in JavaScript, Rust,
    and Go. This includes convenience functionality for setting up
-   networked streams over WebSockets.
+   networked streams over WebSockets, ie a Multiplexer implementation for
+   WebSockets.
 5. Extremely simple to understand and implement. If a reasonable amount of
    performance loss means a greatly simplified design, choose the simple
    option. A first-year undergrad CS student should be able to make a usefully
