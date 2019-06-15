@@ -51,7 +51,7 @@ MESSAGE_TYPE_CONTROL_MESSAGE
 ```
 
 Control messages allow a convenient out-of-band communication channel for
-the Multiplexer, Control messages are not tied to any specific stream.
+the Multiplexer. Control messages are not tied to any specific stream.
 Like stream creation metadata, control messages operate on byte arrays and
 the application is responsible for encoding/decoding.
 
