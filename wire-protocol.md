@@ -1,6 +1,6 @@
 # Introduction
 
-The wire protocol is designed to be as simple as possible to implement, while
+The Multiplexer wire protocol is designed to be as simple as possible to implement, while
 still having reasonable performance. I'm aiming for it to be possible to
 make ad-hoc implementations for simple cases, with 0 dependencies.
 This means there's not currently any bit packing. In fact, every individual
@@ -44,15 +44,18 @@ The initiator determines stream IDs.
 
 Here are the semantics for each type:
 
-## Initiator messages
+## Generic messages
 
 ```
 MESSAGE_TYPE_CONTROL_MESSAGE
 ```
 
-Control messages allow a convenient out-of-band communication channel for each
-stream. Like stream creation metadata, they operate on byte arrays and the
-application is responsible for encoding/decoding.
+Control messages allow a convenient out-of-band communication channel for
+the Multiplexer, Control messages are not tied to any specific stream.
+Like stream creation metadata, control messages operate on byte arrays and
+the application is responsible for encoding/decoding.
+
+## Initiator messages
 
 ```
 MESSAGE_TYPE_CREATE_RECEIVE_STREAM 
