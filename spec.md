@@ -7,9 +7,9 @@ the underlying concepts. While this will hopefully make things simpler for
 beginners, it also means sometimes breaking with common uses of the terms.
 
 * **Stream** - A stream in omnistreams represents the data itself. This especially
-  breaks with systems like node, where the stream is the object that provides
-  the data. omnistreams are also always unidirectional. If you need data
-  flowing in both directions, set up another stream.
+  breaks with systems like node, where the stream is the object that produces
+  or consumes the data. omnistreams are also always unidirectional. If you need data
+  flowing in both directions, open another stream.
 * **Producer** - a Producer emits a stream of data. This would be called a
   ReadStream in node. I found the terms Read/Write stream confusing since it
   could mean you read data from the stream, or the stream reads your data and
@@ -19,11 +19,13 @@ beginners, it also means sometimes breaking with common uses of the terms.
 * **Conduit** - A Conduit acts as both a Consumer and a Producer, with a single
   unidirectional stream being fed to the Consumer and output by the Producer.
   Conduits have two primary uses. The first is for modifying a data stream in
-  some way, in which case it is a transform Conduit. The other is for bridging
+  some way, in which case it is a transform Conduit. This is how you would
+  implement the concept of operators from systems like Rx. The other us is for
+  bridging
   concurrency barriers, ie passing a stream over a network or between threads.
   Note that the term Channel would probably usually be used for this purpose.
   However, that term is heavily used for several different meanings, so we
-  chose to use a different term to avoid confusion. I believe this usage is
+  chose to use a different term to avoid confusion. We believe this usage is
   essentially the same as the Haskell conduit package (see links below).
 * **Multiplexer** - Multiplexers provide a simple interface for creating and
   managing multiple Conduits over a single concurrency medium. This is useful
