@@ -6,7 +6,9 @@ pedantic, using terms primarily based on their English meaning to represent
 the underlying concepts. While this will hopefully make things simpler for
 beginners, it also means sometimes breaking with common uses of the terms.
 
-* **Stream** - A stream in omnistreams represents the data itself. This especially
+* **Stream** - A stream in omnistreams represents the data itself. So each
+  item/chunk received from Producer.onData events is part of the stream. This
+  especially
   breaks with systems like node, where the stream is the object that produces
   or consumes the data. omnistreams are also always unidirectional. If you need data
   flowing in both directions, open another stream.
