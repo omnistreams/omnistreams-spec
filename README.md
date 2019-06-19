@@ -30,7 +30,8 @@ omnistreams are heavily influenced by prior work, especially the excellent
 [Reactive Streams](http://www.reactive-streams.org/), and
 [ReactiveX](http://reactivex.io/). The primary differences are that omnistreams
 have less functionality (no semantics for multiple subscribers, no built-in
-operators, etc) and have a heavy focus on inter-language streaming. The most
+operators, etc) and have a heavy focus on streaming data between different
+programming languages across a network. The most
 important thing we stole from reactive streams is the pull-based backpressure
 semantics (see also [pull
 streams](https://github.com/pull-stream/pull-stream)).
