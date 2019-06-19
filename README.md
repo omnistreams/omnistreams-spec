@@ -58,7 +58,7 @@ decoding. I'm sure other systems support byte streams, but it doesn't seem to be
 * [Go](https://github.com/omnistreams/omnistreams-go)
 
 
-# Additional Resources
+# Additional Streaming Resources
 
 * [Excellent rsocket FAQ](http://rsocket.io/docs/FAQ)
 * [Excellent rsocket Motivations doc](http://rsocket.io/docs/Motivations)
