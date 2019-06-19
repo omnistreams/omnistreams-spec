@@ -4,7 +4,7 @@ omnistreams is a specification defining a data streaming system.
 The project has the following core goals:
 
 1. Language-agnostic interfaces and semantics for barebones readable (producer) and
-   writable (consumer) streams.
+   writable (consumer) streams, including piping, cancellation, and operation (ie map, filter, etc) support.
 2. Dead-simple wire protocol with multiplexing. This is for sending streams
    between networked machines, processes, threads, coroutines, etc. The only
    requirement is an underlying reliable, in-order, message passing system (ie
