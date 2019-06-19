@@ -46,6 +46,10 @@ Unfortunately, that project appears to be defunct. You can think of
 omnistreams as an attempt to generalize node streams to work in any programming
 language, and between any two languages over a network.
 
+The [WHATWG](https://streams.spec.whatwg.org/) Streams API was not as much of a direct
+influence as the previous, but omnistreams shares a lot of similarity in API. They were
+both designed with a focus on I/O streaming.
+
 I discovered [rsocket](http://rsocket.io/) some time after completing a working JavaScript implementation of omnistreams. The goals of the two projects appear to be **very** similar, with rsocket being far more complete and mature. If I had found it when I went looking for a language-agnostic backpressured WebSocket stream multiplexer, I would have spent some time trying to make it work before implementing my own solution. As it stands, the biggest advantage of omnistreams that I see is that it has a much simpler protocol, mostly because it offers far fewer features. This makes it faster to implement for new languages and easier for developers to pick up and use. Knowing that rsocket exists gives me confidence in choosing to keep omnistreams as simple as possible. Also, omnistreams was built from the ground up to support raw byte streams, ie transferring files, in addition
 to streaming things like JSON or Protobuf objects. Everything is just bytes and the application is responsible for encoding and
 decoding. I'm sure other systems support byte streams, but it doesn't seem to be a focus. omnistreams is very agnostic to the datatype. 
