@@ -56,7 +56,7 @@ interface Multiplexer {
     
     // Events
     onMessage: function(callback: function(message: Array<uint8>))
-    onConduit: function(callback: function(producer: Producer, metadata: Array<uint8>))
+    onConduit: function(callback: function(metadata: Array<uint8>, producer: Producer))
 }
 ```
 
