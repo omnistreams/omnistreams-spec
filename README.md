@@ -9,7 +9,7 @@ The project has the following core goals:
    between networked machines, processes, threads, coroutines, etc. The only
    requirement is an underlying reliable, in-order message passing system (ie
    WebSockets, WebRTC, ZeroMQ, reliable UDP, Go channels, etc)
-3. Pull-based (ie client-controlled) backpressure.
+3. Pull-based (ie consumer-controlled) backpressure.
 4. Reference implementations and base classes/interfaces in JavaScript, Rust,
    and Go. This includes convenience functionality for setting up
    networked streams over WebSockets, ie a Multiplexer implementation for
