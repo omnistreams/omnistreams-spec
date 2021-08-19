@@ -26,7 +26,7 @@ beginners, it also means sometimes breaking with common uses of the terms.
   Note that the term Channel would probably usually be used for this purpose.
   However, that term is heavily used for several different meanings, so we
   chose to use a different term to avoid confusion. We believe this usage is
-  essentially the same as the Haskell conduit package (see links below).
+  essentially the same as the Haskell conduit package.
 * **Multiplexer** - Multiplexers provide a simple interface for creating and
   managing multiple Conduits over a single concurrency resource. This is useful
   for sharing a single network socket or other communication primitive where
